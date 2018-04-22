@@ -1,6 +1,6 @@
-## Saving Models:
+## Saving, Restoring and Exporting:
 
-Persisting models on disk:
+**Persisting models on disk:**  
 Any interaction with your filesystem to persist TF data needs the following two objects:
 1. **Saver** - options to save the *full graph* by default or selected variables using the *var_list* argument
 2. **Session object** - select the *graph* you want to load (default graph is current graph) and device placement using *config*
