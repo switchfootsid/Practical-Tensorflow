@@ -1,4 +1,4 @@
-## Saving, Restoring and Exporting:
+# Saving, Restoring and Exporting:
 
 **Persisting models on disk:**  
 Any interaction with your filesystem to persist TF data needs the following two objects:
@@ -37,7 +37,13 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
  * The **.index file** holds an immutable key-value table linking a serialised tensor name and where to find its data in the chkp.data files
  * The **.data files** hold the data (weights) itself (this one is usually quite big in size). There can be many data files because they can be sharded and/or created on multiple timestep while training.
 
+## Three ways to save and restoring models for inference:  
 
-### SavedModel - The real-deal for serving models in production:
+1. **Saver object** for saving checkpoints and restoring **within a session**. 
+2. **Writing a protobuf file** to disk and loading pb file for inference using **tf.GraphDef()** and **import_graph_def**
+3. **Saver object** for saving checkpoints, **restoring** and **converting to pb** file for inference.
+4. **Exporting using SavedModel**
+
+### 4. SavedModel - The real-deal for serving models in production:
 The following comment I found on stackoverflow summarizes EXACTLY what I went through after a week of perfecting my TF model.
 *"Nothing is more frustrating than a checkpoint you cannot use any more because you modified your model and now it is incompatible with checkpoint files and all you want to do is run some predictions through it for comparison."*
