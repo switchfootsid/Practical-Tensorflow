@@ -29,8 +29,9 @@ hyperparameters = tf.get_collection('hyperparameters')
 ```
 
 ### Aside on Protobufs:
-Protobufs or pb files are used to To simplify things I like to think of protobuf files as Google's version of *"Using JSON while development but adding compression capabilities for leaner storage and efficiency for production"*
+Protobufs or pb files facilitate storage, versioning and updates of models in production. To simplify things I like to think of protobuf files as Google's version of *"Using JSON while development but adding compression capabilities for leaner storage and efficiency for production"*
 
+Snap back to reality, when *saving* TF data using the **Saver object** you mainly get the following 4 types of files:
  * The **checkpoint file** is just a bookkeeping file that you can use in combination of high-level helper for loading different time saved chkp files.
  * The **.meta file** holds the compressed Protobufs graph of your model and all the metadata associated (collections, learning rate, operations, etc.) *so you can retrain it*
  * The **.index file** holds an immutable key-value table linking a serialised tensor name and where to find its data in the chkp.data files
