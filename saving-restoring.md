@@ -36,3 +36,8 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
  * The **.meta file** holds the compressed Protobufs graph of your model and all the metadata associated (collections, learning rate, operations, etc.) *so you can retrain it*
  * The **.index file** holds an immutable key-value table linking a serialised tensor name and where to find its data in the chkp.data files
  * The **.data files** hold the data (weights) itself (this one is usually quite big in size). There can be many data files because they can be sharded and/or created on multiple timestep while training.
+
+
+### SavedModel - The real-deal for serving models in production:
+The following comment I found on stackoverflow summarizes EXACTLY what I went through after a week of perfecting my TF model.
+*"Nothing is more frustrating than a checkpoint you cannot use any more because you modified your model and now it is incompatible with checkpoint files and all you want to do is run some predictions through it for comparison."*
