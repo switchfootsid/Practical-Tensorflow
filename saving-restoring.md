@@ -40,7 +40,7 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
 ## Three ways to save and restoring models for inference:  
 
 1. **Saver object** for saving checkpoints and restoring **within a session**. 
-2. **Writing a protobuf file** to disk and loading pb file for inference using **tf.GraphDef()** and **import_graph_def**
+2. **Writing a protobuf file** to disk and loading pb file for inference using ```**tf.GraphDef()** and **import_graph_def**```
 3. **Saver object** for saving checkpoints, **restoring** and **converting to pb** file for inference.
 4. **Exporting using SavedModel**
 
@@ -48,4 +48,4 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
 The following comment I found on stackoverflow summarizes EXACTLY what I went through after a week of perfecting my TF model.
 *"Nothing is more frustrating than a checkpoint you cannot use any more because you modified your model and now it is incompatible with checkpoint files and all you want to do is run some predictions through it for comparison."*
 
-Tensorflow's preferred approach for saving and restoring a model in TensorFlow is to use the ```SavedModel, builder, and loader``` functionality. This actually wraps the ```Saver class``` in order to provide a higher-level serialization, which is more suitable for production purposes.
+Tensorflow's preferred approach for saving and restoring a model is to use the ```SavedModel, builder, and loader``` functionality. This actually wraps the ```Saver class``` in order to provide a higher-level serialization, which is more suitable for production purposes.
