@@ -40,7 +40,7 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
 ## Three ways to save and restoring models for inference:  
 
 1. **Saver object** for saving checkpoints and restoring **within a session**. 
-2. **Writing a protobuf file** to disk and loading pb file for inference using ```**tf.GraphDef()** and **import_graph_def**```
+2. **Writing a protobuf file** to disk and loading pb file for inference using ```tf.GraphDef() and import_graph_def```
 3. **Saver object** for saving checkpoints, **restoring** and **converting to pb** file for inference.
 4. **Exporting using SavedModel**
 
