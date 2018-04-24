@@ -40,7 +40,12 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
 #### Tensorflow trick for PB:
 All operations dealing with protobufs in tensorflow have this “_def” suffix that indicate “protocol buffer definition”.For example:   
 1. **Load the protobufs of a saved graph**: ```tf.import_graph_def.``` 
-2. **Get current graph as a protobuf:** ```Graph.as_graph_def()```
+2. **Current graph as a protobuf:** ```Graph.as_graph_def()```
+3. **Default graph as a protobuf:** . 
+```
+recsys_graph = tf.get_default_graph() #access default graph
+input_graph_def = recsys_graph.as_graph_def() #retreive the protobuf graph definition
+```
  
 ## Three ways to save and restoring models for inference:  
 
