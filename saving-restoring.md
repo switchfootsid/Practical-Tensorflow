@@ -44,7 +44,7 @@ All operations dealing with protobufs in tensorflow have this **“_def”** suf
 3. **Default graph as a protobuf:** . 
 ```
 df_graph = tf.get_default_graph() #access default graph
-pb_graph_def = recsys_graph.as_graph_def() #retreive the protobuf graph definition
+pb_df_graph = df_graph.as_graph_def() #retreive the protobuf graph definition
 ```
  
 ## Three ways to save and restoring models for inference:  
