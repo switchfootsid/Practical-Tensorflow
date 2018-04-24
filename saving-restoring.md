@@ -44,8 +44,12 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
 3. **Saver object** for saving checkpoints, **restoring** and **converting to pb** file for inference.
 4. **Exporting using SavedModel**
 
-### 4. SavedModel - The real-deal for serving models in production:
-The following comment I found on stackoverflow summarizes EXACTLY what I went through after a week of perfecting my TF model.
-*"Nothing is more frustrating than a checkpoint you cannot use any more because you modified your model and now it is incompatible with checkpoint files and all you want to do is run some predictions through it for comparison."*
+### 1. Saving and Restoring:
+
+### 2. Exporting PB File or Frozen Graphs:
+
+### 3. Converting checkpoints to PB file: 
+
+### 4. SavedModel: Using TF Serving:
 
 Tensorflow's preferred approach for saving and restoring a model is to use the ```SavedModel, builder, and loader``` functionality. This actually wraps the ```Saver class``` in order to provide a higher-level serialization, which is more suitable for production purposes.
