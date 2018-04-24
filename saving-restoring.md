@@ -47,7 +47,7 @@ df_graph = tf.get_default_graph() #access default graph
 pb_df_graph = df_graph.as_graph_def() #retreive the protobuf graph definition
 ```
  
-## Three ways to save and restoring models for inference:  
+## Four ways to use TF graphs for inference:  
 
 1. **Saver object** for saving checkpoints and restoring **within a session**. 
 2. **Writing a protobuf file** to disk and loading pb file for inference using ```tf.GraphDef() and import_graph_def```
