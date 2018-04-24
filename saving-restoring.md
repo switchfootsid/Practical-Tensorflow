@@ -60,6 +60,8 @@ pb_df_graph = df_graph.as_graph_def() #retreive the protobuf graph definition
 
 ### 3. Converting checkpoints to PB file: 
 
-### 4. SavedModel: Using TF Serving:
+### 4. SavedModel for TF Serving:
 
 Tensorflow's preferred approach for saving and restoring a model is to use the ```SavedModel, builder, and loader``` functionality. This actually wraps the ```Saver class``` in order to provide a higher-level serialization, which is more suitable for production purposes.
+
+### 5. Convert PB file to SavedModel:
