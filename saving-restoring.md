@@ -38,7 +38,7 @@ Snap back to reality, when *saving* TF data using the **Saver object** you mainl
  * The **.data files** hold the data (weights) itself (this one is usually quite big in size). There can be many data files because they can be sharded and/or created on multiple timestep while training.
  
 #### Tensorflow trick for PB:
-All operations dealing with protobufs in tensorflow have this “_def” suffix that indicate “protocol buffer definition”.For example:   
+All operations dealing with protobufs in tensorflow have this **“_def”** suffix that indicate *“protocol buffer definition”.* For example:   
 1. **Load the protobufs of a saved graph**: ```tf.import_graph_def.``` 
 2. **Current graph as a protobuf:** ```Graph.as_graph_def()```
 3. **Default graph as a protobuf:** . 
