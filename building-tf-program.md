@@ -1,4 +1,4 @@
-### Summary Writer
+### 1. Summary Writer
 
 - Writing log files of the program.
 - Make sure to create a Summary Writer only after defining the
@@ -21,7 +21,7 @@ with tf.Session() as sess:
 	output = sess.run([x], feed_dict = {input_x: batch})
 
 
-### Defining Variables
+### 2. Defining Variables
 - Constants live in the graph and are replicated where the
   graph is loaded
 - Variables are stored separately, may live on a parameter server.
@@ -32,7 +32,7 @@ with tf.Session() as sess:
 
 ```W = tf.get_variable("big_matrix", shape=(784,10), initializer=tf.zeros_initializer())```
 
-#### Initializing Variables
+#### 3. Initializing Variables
 - Every variable must be initialized before using it
 - Another way, is to load a variable's value externally
   from a file
@@ -41,9 +41,9 @@ with tf.Session() as sess:
 	sess.run(tf.global_variables_initializer())
 	# sess.run(tf.global_variables_initializer([a,b]))
 ```
-### Importing Data
+### 4. Importing Data
 
-#### The old way: ```placeholders``` and ```feed_dict```
+#### 4a. The old way: ```placeholders``` and ```feed_dict```
 - Old way" placeholders and feed_dict
 ```
 a = tf.placeholder(tf.float32, shape[3]) # vector of 3 elements
@@ -58,7 +58,7 @@ with tf.Session() as sess:
 		out = sess.run(c, feed_dict={batch: [1,2,3]})
 		print (out)
 ```
-#### The New Way: Dataset API
+#### 4b. The New Way: Dataset API
 - Placeholders often end up processing data in a single thread
   and slows down the entire program
 - Tensorflow also offers queues as an alternative. But messy!
