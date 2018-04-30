@@ -13,13 +13,14 @@
   Note this can only be invoked within a session. 
 
 #### Approach 1:
-writer = tf.summary.FileWriter('./graphs', tf.get_default_graph())
+```writer = tf.summary.FileWriter('./graphs', tf.get_default_graph())```
 
 #### Approach 2:
+```
 with tf.Session() as sess:
 	writer = tf.summary.FileWriter('./graphs', sess.graph)
 	output = sess.run([x], feed_dict = {input_x: batch})
-
+```
 
 ### 2. Defining Variables
 - Constants live in the graph and are replicated where the
