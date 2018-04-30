@@ -65,16 +65,11 @@ with tf.Session() as sess:
 - Tensorflow also offers queues as an alternative. But messy!
 - Enter tf.Data! Pass numpy arrays as tf.data object
 
-```
-tf.data.TextLineDataset(filenames): each file in those
-files becomes one entry. Its good for datasets whose
-entries are delimited by newlines such as NMT or CSV. 
+```tf.data.TextLineDataset(filenames):``` each file in those files becomes one entry. Its good for datasets whose entries are delimited by newlines such as NMT or CSV. 
 
-tf.data.FixedLengthRecordDataset(filenames): each data point
-int the dataset is of the same length. CIFAR/ImageNet
+```tf.data.FixedLengthRecordDataset(filenames):``` Each data point int the dataset is of the same length. CIFAR/ImageNet
 
-tf.data.TFRecordDataset(filenames): TFRecord format
-```
+```tf.data.TFRecordDataset(filenames):``` TFRecord format
 
 #### Approach 1:
 ```
