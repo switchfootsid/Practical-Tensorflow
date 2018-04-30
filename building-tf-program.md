@@ -88,6 +88,5 @@ dataset = tf.data.Dataset.from_tensor_slices((data[:,0], data[:,1]))
 dataset = tf.data.FixedLengthRecordDataset([file1, file2, file3, ...])
 oneshot_iterator = dataset.make_one_shot_iterator()
 mult_iterator = dataset.make_initializer_iterator()
-```
 X,Y = iterator.get_next() 
-
+```
