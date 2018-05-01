@@ -1,6 +1,6 @@
 # Distributed Training
 
-## Data Parallelism:
+## Data Parallelism (Between-Graph Replication)
 - In *data parallelism*, the model is replicated on serveral workers (devices/machines). Each worker trains on a split of the mini-batch, computes the gradients and weight updates are synchronized between all works ensure a consitent graph is being trained. 
 - This has the advantage of handling large I/O and making multiple passes of the data very quickly. 
 
@@ -29,10 +29,3 @@ parameter_servers = ["localhost:2222"]
 workers = ["localhost:2223", "localhost:2224", "localhost:2225"]
 cluster = tf.train.ClusterSpec({"parameter_server": parameter_servers, "worker": workers})
 ```
-
-- Each task must run a Tensorflow Server that allows it to do actual computations and communicate with other nodes in the cluster to facilitate parallelization. 
-- **Workers** compute gradients 
-- **Parameter servers** aggregates and keeps track of the current versions of the parameters.
-
-### Between-graph Replication:
-- Separate but an identical computation graph is built on each of the worker tasks.
