@@ -35,3 +35,7 @@ elif FLAGS.job_name == "worker":
 ...
 ```
 It is error-prone and impractical to create a ```ClusterSpec``` using host endpoints (IP address and port number). Use instead a cluster manager such as Kubernetes to reduce the complexity of configuring and launching TensorFlow applications. The main options are either a cloud managed solution. I *highly recommend* using **Google Cloud Machine Learning Engine.** By wrapping your code in high-level **TF Esimtators API**, distributed training is a breeeze on and requires **no code changes** on CMLE.
+
+
+### Resources . 
+1. https://www.oreilly.com/ideas/distributed-tensorflow
