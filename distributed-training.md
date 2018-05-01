@@ -21,7 +21,8 @@ Distributed TensorFlow applications consist of a cluster containing one or more 
 - Parameter servers only need to aggregate gradients and broadcast updates, so they are typically placed on CPUs, not GPUs.
 - GPU have a slow I/O (possibly due to DMA?), much faster for CPU . 
 
-Note: As someone who focuses on developing new architectures, I must warn you that managing parameters-workers in Tensorflow code is a little messy. The requires the developer to write a lot of control statements. I highly recommend using **Google Cloud Machine Learning Engine.** Via the high-level **TF Esimtators API**, distributed training is a breeeze on CMLE and requires **no code changes**.
+### Note:  
+As someone who wants to focus on developing (learning) new deep architectures, I must warn you that managing parameters-workers in Tensorflow code is a little messy. It requires the developer to write a lot of control statements and tracking IP addresses. I highly recommend using **Google Cloud Machine Learning Engine.** Via the high-level **TF Esimtators API**, distributed training is a breeeze on CMLE and requires **no code changes**.
 
 ```
 parameter_servers = ["localhost:2222"]
