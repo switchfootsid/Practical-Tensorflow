@@ -32,4 +32,3 @@ cluster = tf.train.ClusterSpec({"parameter_server": parameter_servers, "worker":
 
 ### Between-graph Replication:
 - Separate but an identical computation graph is built on each of the worker tasks.
-- 
