@@ -24,11 +24,15 @@ Distributed TensorFlow applications consist of a cluster containing one or more 
 ### Note on Practical Distributed TF:  
 As someone who wants to focus on developing (learning) new deep architectures, I must warn you that managing parameters-workers in Tensorflow code is a little messy. It requires the developer to write a lot of control statements and tracking IP addresses.  
 
-It is error-prone and impractical to create a ClusterSpec using host endpoints (IP address and port number). Use instead a cluster manager such as Kubernetes to reduce the complexity of configuring and launching TensorFlow applications. The main options are either a cloud managed solution. I highly recommend using **Google Cloud Machine Learning Engine.** By wrapping your code in high-level **TF Esimtators API**, distributed training is a breeeze on and requires **no code changes** on CMLE.
-
+One disadvantage of Distributed TensorFlow, is that you have to **manage the starting and stopping of servers explicitly**. This means keeping track of the host endpoints (IP addresses and ports) of all your TensorFlow servers in your program and starting and stopping those servers manually.
 
 ```
 parameter_servers = ["localhost:2222"]
 workers = ["localhost:2223", "localhost:2224", "localhost:2225"]
-cluster = tf.train.ClusterSpec({"parameter_server": parameter_servers, "worker": workers})
+cluster = tf.train.ClusterSpec({"ps": parameter_servers, "worker": workers})
+if FLAGS.job_name == "ps":
+    server.join()
+elif FLAGS.job_name == "worker":
+...
 ```
+It is error-prone and impractical to create a ```ClusterSpec``` using host endpoints (IP address and port number). Use instead a cluster manager such as Kubernetes to reduce the complexity of configuring and launching TensorFlow applications. The main options are either a cloud managed solution. I *highly recommend* using **Google Cloud Machine Learning Engine.** By wrapping your code in high-level **TF Esimtators API**, distributed training is a breeeze on and requires **no code changes** on CMLE.
