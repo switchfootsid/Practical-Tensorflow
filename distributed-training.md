@@ -5,9 +5,9 @@
 - This has the advantage of handling large I/O and making multiple passes of the data very quickly. 
 
 ## Parameter Server Architecture:
-- All machines/nodes/devices are split between parameter servers and workers. One of the workers is the *master*.  
-- The *master worker* coordinates model training, initializing, counts the number of training steps monitors the session, saves-restores model checkpoints to recover from failures.  
-- Parameter server contains a replica of the entire graph (variables/nodes) that is broadcasted to each of the worker. 
+- All machines/nodes/devices are split between **parameter servers** and **workers**. One of the workers is the *master*.  
+- *Master worker* coordinates model training, initializing, counts the number of training steps monitors the session, saves-restores model checkpoints to recover from failures.  
+- *Parameter server* contains a replica of the entire graph (variables/nodes) that is broadcasted to each of the worker. 
 
 In each iteration:  
 1. **Each worker** reads its own split from the mini-batch and computes gradients . 
