@@ -5,7 +5,8 @@
 - This has the advantage of handling large I/O and making multiple passes of the data very quickly. 
 
 ## Parameter Server Architecture:
-- All machines/nodes/devices are split between parameter servers and workers.
+- All machines/nodes/devices are split between parameter servers and workers. One of the workers is the *master*.  
+- The *master worker* coordinates model training, initializing, counts the number of training steps monitors the session, saves-restores model checkpoints to recover from failures.  
 - Parameter server contains a replica of the entire graph (variables/nodes) that is broadcasted to each of the worker. 
 
 In each iteration:  
@@ -19,6 +20,8 @@ Distributed TensorFlow applications consist of a cluster containing one or more 
 - Workers calculate gradients during training, they are typically placed on a GPU . 
 - Parameter servers only need to aggregate gradients and broadcast updates, so they are typically placed on CPUs, not GPUs.
 - GPU have a slow I/O (possibly due to DMA?), much faster for CPU . 
+
+Note: As someone who focuses on developing new architectures, I must warn you that managing parameters-workers in Tensorflow code is a little messy. The requires the developer to write a lot of control statements. I highly recommend using **Google Cloud Machine Learning Engine.** Via the high-level **TF Esimtators API**, distributed training is a breeeze on CMLE and requires **no code changes**.
 
 ```
 parameter_servers = ["localhost:2222"]
