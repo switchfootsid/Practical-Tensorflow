@@ -16,10 +16,9 @@ In each iteration:
 4. The *new model is now broadcast* to each of the workers . 
 
 ## Distributed Tensorflow for Noobs
-Distributed TensorFlow applications consist of a cluster containing one or more parameter servers and workers. 
-- Workers calculate gradients during training, they are typically placed on a GPU . 
-- Parameter servers only need to aggregate gradients and broadcast updates, so they are typically placed on CPUs, not GPUs.
-- GPU have a slow I/O (possibly due to DMA?), much faster for CPU . 
+Distributed TensorFlow applications consist of a cluster containing one or more parameter servers** and workers. 
+- Since *workers* do compute intensive gradient calculation during training, they are typically placed on a GPU . 
+- *Parameter servers* only need to aggregate gradients and broadcast updates, so they are typically placed on CPUs. GPUs also have a slow I/O (possibly due to DMA?) and CPUs are generally much faster .  
 
 ### Note on Practical Distributed TF:  
 As someone who wants to focus on developing (learning) new deep architectures, I must warn you that managing parameters-workers in Tensorflow code is a little messy. It requires the developer to write a lot of control statements and tracking IP addresses.  
