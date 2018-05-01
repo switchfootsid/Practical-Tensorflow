@@ -20,10 +20,6 @@ Distributed TensorFlow applications consist of a cluster containing one or more 
 - Parameter servers only need to aggregate gradients and broadcast updates, so they are typically placed on CPUs, not GPUs.
 - GPU have a slow I/O (possibly due to DMA?), much faster for CPU . 
 
-- A tensorflow cluser is a set of nodes that process the computation graph parallely.
-- Each node runs a task
-- Each task is defined by the network address
-
 ```
 parameter_servers = ["localhost:2222"]
 workers = ["localhost:2223", "localhost:2224", "localhost:2225"]
