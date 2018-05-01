@@ -1,4 +1,4 @@
-## Distributed Tensorflow for Noobs
+## Distributed Training
 
 ## Data Parallelism:
 - In data parallelism, the model is replicated on serveral workers (devices/machines). Each worker trains on a split of the mini-batch, computes the gradients and weight updates are synchronized between all works ensure a consitent graph is being trained. 
@@ -7,12 +7,15 @@
 ## Parameter Server Architecture:
 - All machines/nodes/devices are split between parameter servers and workers.
 - Parameter server contains a replica of the entire graph (variables/nodes) that is broadcasted to each of the worker. 
-- In each iteration:
-  1. **Each worker** reads its own split from the mini-batch and computes gradients .  
-  3. Worker sends the gradient updates to one (or more) parameter servers . 
-  4. The **parameter servers** aggregate all the graidents from the workers and *calculate a new model*   
-  5. The *new model is now broadcast* to each of the workers . 
 
+In each iteration:  
+1. **Each worker** reads its own split from the mini-batch and computes gradients . 
+2. Worker sends the gradient updates to one (or more) parameter servers . 
+3. The **parameter servers** aggregate all the graidents from the workers and *calculate a new model* . 
+4. The *new model is now broadcast* to each of the workers . 
+
+
+## Distributed Tensorflow for Noobs
 - A tensorflow cluser is a set of nodes that process the computation graph parallely.
 - Each node runs a task
 - Each task is defined by the network address
